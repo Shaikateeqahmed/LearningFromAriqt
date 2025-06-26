@@ -1,0 +1,8 @@
+<ul>
+    <ng-content select=".title"></ng-content>
+    <li *ngFor="let prod of products">
+        <div><h1>{{prod.name}}</h1>
+        <p>{{prod.price}}</p></div>
+    </li>
+    <ng-content select=".link"></ng-content>
+</ul>
