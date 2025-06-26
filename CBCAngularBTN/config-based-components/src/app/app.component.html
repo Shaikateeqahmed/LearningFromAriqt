@@ -1,0 +1,31 @@
+<app-config-button
+  [config]="{
+    label: 'Submit',
+    type: 'submit',
+    styles: {
+      'background-color': '#7CB9E8',
+      'color': 'white',
+      'border': 'none',
+      'border-radius': '4px'
+    },
+    classes: ['btn', 'btn-primary'],
+    icon: 'fa fa-check',
+    onClick: handleButtonClick
+  }"
+></app-config-button>
+
+<app-config-button
+  [config]="{
+    label: 'Primary',
+    type: 'button',
+    styles: {
+      'background-color': 'blue',
+      'color': 'white',
+      'border': 'none',
+      'border-radius': '4px'
+    },
+    classes: ['btn', 'btn-primary'],
+    icon: 'fa fa-check',
+    onClick: handleButtonClick
+  }"
+></app-config-button>
