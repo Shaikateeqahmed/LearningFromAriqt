@@ -1,0 +1,24 @@
+<form [formGroup]="password">
+    <h1>{{config?.title}}</h1>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">{{config?.label}}</label>
+      <input [type]="config?.type" class="form-control" id="exampleInputPassword1" formControlName="posswordFeild">
+      <div style="color: red;" *ngIf="PasswordError">
+        Password must be at least 8 characters long.
+      </div>
+    </div>
+    
+
+    <lib-ui-button #button
+    [config]="{
+        label: 'Submit',
+        type: 'submit',
+        disabled : disabledBTN,
+        styles: { },
+        classes: ['btn', 'btn-primary'],
+        icon: 'fa fa-check',
+        onClick: handleButtonClick
+      }">
+      <lib-ui-spinner></lib-ui-spinner>
+    </lib-ui-button>
+  </form>

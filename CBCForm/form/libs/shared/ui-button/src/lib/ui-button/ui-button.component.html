@@ -1,0 +1,17 @@
+<button
+  [type]="config?.type || 'button'"
+  [disabled]="config?.disabled || false"
+  [ngStyle]="config?.styles"
+  [ngClass]="config?.classes"
+  (click)="handleClick()"
+>
+<ng-container *ngIf="config?.icon">
+<i [ngClass]="config?.icon"></i>
+</ng-container>
+<ng-container *ngIf="!showSpinner">
+  {{ config?.label }}
+</ng-container>
+  <ng-container *ngIf="showSpinner">
+    <lib-ui-spinner></lib-ui-spinner>
+  </ng-container>
+</button>
