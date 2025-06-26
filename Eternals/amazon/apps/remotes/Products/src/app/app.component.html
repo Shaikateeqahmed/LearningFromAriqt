@@ -1,0 +1,10 @@
+<div class="navbar">
+   <button (click)="filterCategory('all')">All Products</button>
+   <button (click)="filterCategory('Fashion')">Fashion</button>
+   <button (click)="filterCategory('Electronics')">Electronics</button>
+ </div>
+ <div *ngFor="let product of filteredProducts" class="w-100 mb-3">
+   <amazon-ui-card [config]="product"></amazon-ui-card>
+ </div>
+ <router-outlet></router-outlet>
+ 

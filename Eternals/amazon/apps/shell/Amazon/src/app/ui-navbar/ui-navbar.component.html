@@ -1,0 +1,52 @@
+<nav class="navbar  fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/" style="font-weight: bold;">
+      <img width="40" height="40" style="border-radius: 50%;"
+        src="https://www.fineprintart.com/images/blog/amazon-logo/amazon_logo_history_5.jpg" alt="">
+      Amazon</a>
+    <div style="width: 30%; display: flex; justify-content: space-around; align-items: center;">
+      <amazon-ui-button [config]="{
+            label: 'Products',
+            type: 'button',
+            disabled: false,
+            classes: ['btn', 'btn-primary'],
+            icon: 'bi bi-collection',
+            onClick: HandleProducts.bind(this)
+          }"></amazon-ui-button>
+
+      <amazon-ui-button [config]="{
+         label : 'Cart',
+         type : 'button',
+         disabled : false,
+         classes : ['btn', 'btn-primary'],
+         icon : 'bi bi-bag-heart',
+         onClick : HandleCart
+        }"></amazon-ui-button>
+      <button *ngIf="state" style="border: 1px solid orange;border-radius: 50%; height: 35px; width:35px;"
+        class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <span id="FirstChar">{{ FirstChar }}</span>
+      </button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel"
+        data-bs-backdrop="static">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Your Profile</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <span id="OffCanvasFC">{{ FirstChar }}</span>
+          <h3 id="nameFC">{{ name }}</h3>
+          <p id="emailFC">{{ state.user?.username }}</p>
+        </div>
+        <amazon-ui-button [config]="{
+          label : 'LogOut',
+          type : 'button',
+          disabled : false,
+          classes : ['btn', 'btn-primary'],
+          icon : 'bi bi-box-arrow-left',
+          onClick : HandleLogout
+         }"></amazon-ui-button>
+      </div>
+    </div>
+  </div>
+</nav>

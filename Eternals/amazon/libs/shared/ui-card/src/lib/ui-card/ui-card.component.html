@@ -1,0 +1,26 @@
+<div class="card" *ngIf="config">
+  <img
+    [src]="config.image"
+  />
+  <div class="card-body text-center">
+    <h5 class="card-title">{{ config.title | uppercase }}</h5>
+    <p class="card-text">
+      {{ config.desc }}
+    </p>
+    <p class="h5 fw-light" [ngClass]="config.PriceClass">
+      M.R.P {{ config.price | currency : 'USD' }}
+    </p>
+    <ng-container *ngIf="isDicounted">
+      <p class="h5">
+        {{ config.discount | currency : 'USD' }}
+      </p>
+    </ng-container>
+    <amazon-ui-button
+      [config]="{
+        label: 'Details',
+        classes: ['btn', 'btn-warning', 'mt-2'],
+        onClick: detailProduct
+      }"
+    ></amazon-ui-button>
+  </div>
+</div>

@@ -1,0 +1,112 @@
+{
+  "name": "Cart",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "app",
+  "sourceRoot": "apps/remotes/Cart/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:webpack-browser",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/apps/remotes/Cart",
+        "index": "apps/remotes/Cart/src/index.html",
+        "main": "apps/remotes/Cart/src/main.ts",
+        "polyfills": [
+          "zone.js"
+        ],
+        "tsConfig": "apps/remotes/Cart/tsconfig.app.json",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "apps/remotes/Cart/public",
+            "output": "."
+          }
+        ],
+        "styles": [
+          "apps/remotes/Cart/src/styles.css", "node_modules/bootstrap/dist/css/bootstrap.min.css", "node_modules/bootstrap-icons/font/bootstrap-icons.css", "node_modules/ngx-toastr/toastr.css"
+        ],
+        "scripts": ["node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"],
+        "customWebpackConfig": {
+          "path": "apps/remotes/Cart/webpack.config.js"
+        },
+        "commonChunk": false
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/remotes/Cart/webpack.prod.config.js"
+          }
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nx/angular:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "Cart:build:production"
+        },
+        "development": {
+          "buildTarget": "Cart:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "port": 5200,
+        "publicHost": "http://localhost:5200"
+      }
+    },
+    "extract-i18n": {
+      "executor": "ngx-build-plus:extract-i18n",
+      "options": {
+        "buildTarget": "Cart:build",
+        "extraWebpackConfig": "apps/remotes/Cart/webpack.config.js"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
+      "options": {
+        "jestConfig": "apps/remotes/Cart/jest.config.ts"
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "Cart:build",
+        "port": 4200,
+        "spa": true
+      }
+    }
+  }
+}

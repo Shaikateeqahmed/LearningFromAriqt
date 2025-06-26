@@ -1,0 +1,27 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2020",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "component-base-data-products": ["libs/data/data-products/src/index.ts"],
+      "component-base-ui-button": ["libs/shared/ui-button/src/index.ts"],
+      "component-base-ui-card": ["libs/shared/ui-card/src/index.ts"],
+      "component-base-ui-list": ["libs/shared/ui-list/src/index.ts"],
+      "component-base-ui-spinner": ["libs/shared/ui-spinner/src/index.ts"],
+      "component-base-ui-toastr": ["libs/shared/ui-toastr/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}
