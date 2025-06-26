@@ -1,0 +1,10 @@
+{
+  "name": "men-e2e",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/remotes/men-e2e/src",
+  "tags": [],
+  "implicitDependencies": ["men"],
+  "// targets": "to see all targets run: nx show project men-e2e --web",
+  "targets": {}
+}
