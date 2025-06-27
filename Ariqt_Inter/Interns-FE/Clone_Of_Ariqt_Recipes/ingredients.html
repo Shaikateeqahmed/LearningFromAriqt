@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ariqt Recipes Ingredients Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        table{
+            width: 90%;
+            margin: 50px auto auto auto;
+
+        }
+        tr{
+            text-align: center;
+        }
+       table, td{
+        border: 3px solid teal;
+       }
+       h1{
+        text-align: center;
+       }
+       #img{
+        width: 40%;
+        margin: auto;
+        border-radius: 30%;
+       }
+       #img:hover{
+        box-shadow: #6FD0A6 0px 54px 55px, #6FD0A6 0px -12px 30px, #6FD0A6 0px 4px 6px, #6FD0A6 0px 12px 13px, #6FD0A6 0px -3px 5px;
+       }
+       #img>img{
+        width: 100%;
+        height: 100%;
+        border-radius: 30%;
+       }
+       #breadcrumb{
+        font-size: 30px;
+        margin-left: 30px;
+       }
+       #breadcrumb>ol>li:nth-child(1)>a{
+          color: gray;
+          text-decoration: none;
+       }
+       #breadcrumb>ol>li:nth-child(2)>a{
+          color: orange;
+          text-decoration: none;
+       }
+       @media all and (min-width:790px) and (max-width:1260px){
+        #img{
+        width: 60%;
+       }
+}
+
+@media all and (max-width:789px){
+    #img{
+        width: 80%;
+       }
+   table{
+    width: 100%;
+   }
+}
+    </style>
+</head>
+<body>
+    <nav id ="breadcrumb" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page"><a href="./ingredients.html">Ingredients</a></li>
+        </ol>
+      </nav>
+    <h1>The Ingretients of Recipe :- <span id="name"></span></h1>
+    <div id="img"></div>
+    <table>
+        <thead> <tr>
+            <th>S.NO</th>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Unit(s)</th>
+        </tr>
+    </thead>
+    <tbody id="table"></tbody>
+       
+    </table>
+</body>
+</html>
+<script src="./ingredients.js"></script>

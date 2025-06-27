@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg px-3 fixed-top" style="background-color: #0088cc;">
+    <div class="container-fluid">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li><a class="nav-link white" href="#">
+            <img width="30" class="mb-2" style="border-radius: 50%;"
+              src="data:image/jpeg;base64,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"
+              alt="">
+            <b style="font-size: 25px;">Ariqt International</b>
+          </a></li>
+      </ul>
+      <div>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle white" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-folder2-open mb-1" viewBox="0 0 16 16">
+                <path
+                  d="M1 3.5A1.5 1.5 0 0 1 2.5 2h2.764c.958 0 1.76.56 2.311 1.184C7.985 3.648 8.48 4 9 4h4.5A1.5 1.5 0 0 1 15 5.5v.64c.57.265.94.876.856 1.546l-.64 5.124A2.5 2.5 0 0 1 12.733 15H3.266a2.5 2.5 0 0 1-2.481-2.19l-.64-5.124A1.5 1.5 0 0 1 1 6.14V3.5zM2 6h12v-.5a.5.5 0 0 0-.5-.5H9c-.964 0-1.71-.629-2.174-1.154C6.374 3.334 5.82 3 5.264 3H2.5a.5.5 0 0 0-.5.5V6zm-.367 1a.5.5 0 0 0-.496.562l.64 5.124A1.5 1.5 0 0 0 3.266 14h9.468a1.5 1.5 0 0 0 1.489-1.314l.64-5.124A.5.5 0 0 0 14.367 7H1.633z" />
+              </svg>
+              <b>Project:</b> Web Shop
+            </a>
+            <ul class="dropdown-menu" style="background-color: #065780;">
+              <li><a class="dropdown-item white" href="#">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-folder-fill" viewBox="0 0 16 16">
+                    <path
+                      d="M9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.825a2 2 0 0 1-1.991-1.819l-.637-7a1.99 1.99 0 0 1 .342-1.31L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3zm-8.322.12C1.72 3.042 1.95 3 2.19 3h5.396l-.707-.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139z" />
+                  </svg>
+                  Web Shop</a></li>
+              <li>
+                <hr class="dropdown-divider white">
+              </li>
+              <li><a class="dropdown-item white" href="#">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-bag-fill" viewBox="0 0 16 16">
+                    <path
+                      d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5z" />
+                  </svg>
+                  Projects Overview</a></li>
+              <li><a class="dropdown-item white" href="#">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-bag-plus-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                      d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zM8.5 8a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V12a.5.5 0 0 0 1 0v-1.5H10a.5.5 0 0 0 0-1H8.5V8z" />
+                  </svg>
+                  New Project</a></li>
+            </ul>
+          </li>
+          <li class="nav-item px-2">
+            <a class="nav-link white" href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-bell-fill mb-1" viewBox="0 0 16 16">
+                <path
+                  d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z" />
+              </svg>
+              <span class="badge" style="background-color: #43a2de;">4</span>
+            </a>
+          </li>
+          <li class="nav-item dropdown px-2">
+            <a class="nav-link dropdown-toggle white" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-tools mb-1" viewBox="0 0 16 16">
+                <path
+                  d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0Zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708ZM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11Z" />
+              </svg>
+              Tools
+            </a>
+            <ul class="dropdown-menu" style="background-color: #065780;">
+              <li><a class="dropdown-item white" href="#">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-cloud-upload-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                      d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0zm-.5 14.5V11h1v3.5a.5.5 0 0 1-1 0z" />
+                  </svg>
+                  Import PPC Costs</a></li>
+              <li><a class="dropdown-item white" href="#">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-cloud-upload-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                      d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0zm-.5 14.5V11h1v3.5a.5.5 0 0 1-1 0z" />
+                  </svg>
+                  Import Affiliate Commissions</a></li>
+              <li><a class="dropdown-item white" href="#">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-eye-fill" viewBox="0 0 16 16">
+                    <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                    <path
+                      d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                  </svg>
+                  Realtime Spy</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown px-2">
+            <a class="nav-link dropdown-toggle white" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-person-circle mb-1" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                <path fill-rule="evenodd"
+                  d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+              </svg>
+              Account Setting
+            </a>
+            <ul class="dropdown-menu" style="background-color: #065780;">
+              <li><a class="dropdown-item white" href="#">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-file-earmark-person-fill" viewBox="0 0 16 16">
+                    <path
+                      d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm2 5.755V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-.245S4 12 8 12s5 1.755 5 1.755z" />
+                  </svg>
+                  Profile</a></li>
+              <li><a class="dropdown-item white" href="#">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-clipboard-check-fill" viewBox="0 0 16 16">
+                    <path
+                      d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z" />
+                    <path
+                      d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z" />
+                  </svg>
+                  Billing</a></li>
+              <li><a class="dropdown-item white" href="#">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-people-fill" viewBox="0 0 16 16">
+                    <path
+                      d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+                  </svg>
+                  Users</a></li>
+              <li><a class="dropdown-item white" href="#">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-key-fill" viewBox="0 0 16 16">
+                    <path
+                      d="M3.5 11.5a3.5 3.5 0 1 1 3.163-5H14L15.5 8 14 9.5l-1-1-1 1-1-1-1 1-1-1-1 1H6.663a3.5 3.5 0 0 1-3.163 2zM2.5 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+                  </svg>
+                  API Access</a></li>
+              <li><a class="dropdown-item white" href="#">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-person-fill-slash" viewBox="0 0 16 16">
+                    <path
+                      d="M13.879 10.414a2.501 2.501 0 0 0-3.465 3.465l3.465-3.465Zm.707.707-3.465 3.465a2.501 2.501 0 0 0 3.465-3.465Zm-4.56-1.096a3.5 3.5 0 1 1 4.949 4.95 3.5 3.5 0 0 1-4.95-4.95ZM11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm-9 8c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4Z" />
+                  </svg>
+                  Log Out</a></li>
+            </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="d-flex" id="body">
+    <div id="icons" class="p-4 blue">
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-grid-fill"
+        viewBox="0 0 16 16">
+        <path
+          d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z" />
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+        class="bi bi-bar-chart-line-fill" viewBox="0 0 16 16">
+        <path
+          d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2z" />
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-bezier"
+        viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+          d="M0 10.5A1.5 1.5 0 0 1 1.5 9h1A1.5 1.5 0 0 1 4 10.5v1A1.5 1.5 0 0 1 2.5 13h-1A1.5 1.5 0 0 1 0 11.5v-1zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zm10.5.5A1.5 1.5 0 0 1 13.5 9h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1a1.5 1.5 0 0 1-1.5-1.5v-1zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM6 4.5A1.5 1.5 0 0 1 7.5 3h1A1.5 1.5 0 0 1 10 4.5v1A1.5 1.5 0 0 1 8.5 7h-1A1.5 1.5 0 0 1 6 5.5v-1zM7.5 4a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1z" />
+        <path
+          d="M6 4.5H1.866a1 1 0 1 0 0 1h2.668A6.517 6.517 0 0 0 1.814 9H2.5c.123 0 .244.015.358.043a5.517 5.517 0 0 1 3.185-3.185A1.503 1.503 0 0 1 6 5.5v-1zm3.957 1.358A1.5 1.5 0 0 0 10 5.5v-1h4.134a1 1 0 1 1 0 1h-2.668a6.517 6.517 0 0 1 2.72 3.5H13.5c-.123 0-.243.015-.358.043a5.517 5.517 0 0 0-3.185-3.185z" />
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-funnel-fill"
+        viewBox="0 0 16 16">
+        <path
+          d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2z" />
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+        class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16">
+        <path
+          d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-people-fill"
+        viewBox="0 0 16 16">
+        <path
+          d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-gear-fill"
+        viewBox="0 0 16 16">
+        <path
+          d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z" />
+      </svg>
+      <hr style="color: black;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus-square-fill"
+        viewBox="0 0 16 16">
+        <path
+          d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+      </svg>
+    </div>
+    <div id="title" class="collapse collapse-horizontal" style="width: 30%;">
+      <p>Dashboard</p>
+      <p data-bs-toggle="modal" data-bs-target="#Modal" id="sources">Traffic Sources</p>
+      <p data-bs-toggle="modal" data-bs-target="#Modal" id="links">Tranking Links</p>
+      <p data-bs-toggle="modal" data-bs-target="#Modal" id="funnels">Conversion Funnels</p>
+      <p data-bs-toggle="modal" data-bs-target="#Modal" id="fraud">Click Fraud</p>
+      <p data-bs-toggle="modal" data-bs-target="#Modal" id="explore">People Explore</p>
+      <div class="dropdown">
+        <button class="btn dropdown-toggle" style="background-color: white;" type="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Settings
+        </button>
+        <ul class="dropdown-menu " style="background-color: #065780;">
+          <li><a class="dropdown-item white" href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-file-earmark-person-fill" viewBox="0 0 16 16">
+                <path
+                  d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm2 5.755V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-.245S4 12 8 12s5 1.755 5 1.755z" />
+              </svg>
+              Profile</a></li>
+          <li><a class="dropdown-item white" href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-clipboard-check-fill" viewBox="0 0 16 16">
+                <path
+                  d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z" />
+                <path
+                  d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z" />
+              </svg>
+              Billing</a></li>
+          <li><a class="dropdown-item white" href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-people-fill" viewBox="0 0 16 16">
+                <path
+                  d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+              </svg>
+              Users</a></li>
+          <li><a class="dropdown-item white" href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-key-fill"
+                viewBox="0 0 16 16">
+                <path
+                  d="M3.5 11.5a3.5 3.5 0 1 1 3.163-5H14L15.5 8 14 9.5l-1-1-1 1-1-1-1 1-1-1-1 1H6.663a3.5 3.5 0 0 1-3.163 2zM2.5 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+              </svg>
+              API Access</a></li>
+          <li><a class="dropdown-item white" href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-person-fill-slash" viewBox="0 0 16 16">
+                <path
+                  d="M13.879 10.414a2.501 2.501 0 0 0-3.465 3.465l3.465-3.465Zm.707.707-3.465 3.465a2.501 2.501 0 0 0 3.465-3.465Zm-4.56-1.096a3.5 3.5 0 1 1 4.949 4.95 3.5 3.5 0 0 1-4.95-4.95ZM11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm-9 8c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4Z" />
+              </svg>
+              Log Out</a></li>
+          <li><a class="dropdown-item white" href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-cloud-upload-fill" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                  d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0zm-.5 14.5V11h1v3.5a.5.5 0 0 1-1 0z" />
+              </svg>
+              Import PPC Costs</a></li>
+          <li><a class="dropdown-item white" href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-cloud-upload-fill" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                  d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0zm-.5 14.5V11h1v3.5a.5.5 0 0 1-1 0z" />
+              </svg>
+              Import Affiliate Commissions</a></li>
+          <li><a class="dropdown-item white" href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill"
+                viewBox="0 0 16 16">
+                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+              </svg>
+              Realtime Spy</a></li>
+        </ul>
+      </div>
+      <div class="dropdown">
+        <button class="btn dropdown-toggle" style="background-color: white;" type="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Create New
+        </button>
+        <ul class="dropdown-menu " style="background-color: #065780;">
+          <li><a class="dropdown-item white" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                fill="currentColor" class="bi bi-bezier" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                  d="M0 10.5A1.5 1.5 0 0 1 1.5 9h1A1.5 1.5 0 0 1 4 10.5v1A1.5 1.5 0 0 1 2.5 13h-1A1.5 1.5 0 0 1 0 11.5v-1zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zm10.5.5A1.5 1.5 0 0 1 13.5 9h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1a1.5 1.5 0 0 1-1.5-1.5v-1zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM6 4.5A1.5 1.5 0 0 1 7.5 3h1A1.5 1.5 0 0 1 10 4.5v1A1.5 1.5 0 0 1 8.5 7h-1A1.5 1.5 0 0 1 6 5.5v-1zM7.5 4a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1z" />
+                <path
+                  d="M6 4.5H1.866a1 1 0 1 0 0 1h2.668A6.517 6.517 0 0 0 1.814 9H2.5c.123 0 .244.015.358.043a5.517 5.517 0 0 1 3.185-3.185A1.503 1.503 0 0 1 6 5.5v-1zm3.957 1.358A1.5 1.5 0 0 0 10 5.5v-1h4.134a1 1 0 1 1 0 1h-2.668a6.517 6.517 0 0 1 2.72 3.5H13.5c-.123 0-.243.015-.358.043a5.517 5.517 0 0 0-3.185-3.185z" />
+              </svg> Tranking</a></li>
+          <li><a class="dropdown-item white" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                fill="currentColor" class="bi bi-shuffle" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                  d="M0 3.5A.5.5 0 0 1 .5 3H1c2.202 0 3.827 1.24 4.874 2.418.49.552.865 1.102 1.126 1.532.26-.43.636-.98 1.126-1.532C9.173 4.24 10.798 3 13 3v1c-1.798 0-3.173 1.01-4.126 2.082A9.624 9.624 0 0 0 7.556 8a9.624 9.624 0 0 0 1.317 1.918C9.828 10.99 11.204 12 13 12v1c-2.202 0-3.827-1.24-4.874-2.418A10.595 10.595 0 0 1 7 9.05c-.26.43-.636.98-1.126 1.532C4.827 11.76 3.202 13 1 13H.5a.5.5 0 0 1 0-1H1c1.798 0 3.173-1.01 4.126-2.082A9.624 9.624 0 0 0 6.444 8a9.624 9.624 0 0 0-1.317-1.918C4.172 5.01 2.796 4 1 4H.5a.5.5 0 0 1-.5-.5z" />
+                <path
+                  d="M13 5.466V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192zm0 9v-3.932a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192z" />
+              </svg> A/B Split Test</a></li>
+          <li><a class="dropdown-item white" href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-arrow-90deg-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                  d="M14.854 4.854a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 4H3.5A2.5 2.5 0 0 0 1 6.5v8a.5.5 0 0 0 1 0v-8A1.5 1.5 0 0 1 3.5 5h9.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4z" />
+              </svg>Affiliate Outlink</a></li>
+          <li><a class="dropdown-item white" href="#"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                fill="currentColor" class="bi bi-funnel-fill" viewBox="0 0 16 16">
+                <path
+                  d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2z" />
+              </svg> Funnel Report</a></li>
+          <li><a class="dropdown-item white" href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-person-circle" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                <path fill-rule="evenodd"
+                  d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+              </svg>User</a></li>
+        </ul>
+      </div>
+    </div>
+    <a id="title_btn" class="blue" role="button" href="#title" data-bs-toggle="collapse"><svg
+        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill"
+        viewBox="0 0 16 16">
+        <path
+          d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+      </svg></a>
+    <div id="cont">
+
+      <div class="d-flex justify-content-between p-4">
+        <H1 class="blue">Dashboard</H1>
+        <div>
+          <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-flag-fill"
+              viewBox="0 0 16 16">
+              <path
+                d="M14.778.085A.5.5 0 0 1 15 .5V8a.5.5 0 0 1-.314.464L14.5 8l.186.464-.003.001-.006.003-.023.009a12.435 12.435 0 0 1-.397.15c-.264.095-.631.223-1.047.35-.816.252-1.879.523-2.71.523-.847 0-1.548-.28-2.158-.525l-.028-.01C7.68 8.71 7.14 8.5 6.5 8.5c-.7 0-1.638.23-2.437.477A19.626 19.626 0 0 0 3 9.342V15.5a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 1 0v.282c.226-.079.496-.17.79-.26C4.606.272 5.67 0 6.5 0c.84 0 1.524.277 2.121.519l.043.018C9.286.788 9.828 1 10.5 1c.7 0 1.638-.23 2.437-.477a19.587 19.587 0 0 0 1.349-.476l.019-.007.004-.002h.001" />
+            </svg>
+            <b>Goal: </b>All Goals
+          </button>
+          <ul class="dropdown-menu p-2">
+            <li><input type="text" placeholder="Search"></li>
+            <li><input type="checkbox">Select All</li>
+            <li><input type="checkbox">Sale</li>
+          </ul>
+          <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar3"
+              viewBox="0 0 16 16">
+              <path
+                d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z" />
+              <path
+                d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+            </svg>
+            October 3, 2023 - November 1, 2023
+          </button>
+          <ul class="dropdown-menu p-4">
+            <li>Today</li>
+            <li>Yesterday</li>
+            <li>Last 7 Days</li>
+            <li>Last 30 Days</li>
+            <li>This Month</li>
+            <li>Last Month</li>
+            <li>Custom Range</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="traffic_status">
+        <div>
+          <h5>All Traffic</h5>
+          <div class="d-flex flex-column">
+            <p><b>5063 </b> Visits</p>
+            <p><b>95 </b> Conversions</p>
+          </div>
+        </div>
+        <div>
+          <h5>Ad Traffic</h5>
+          <div class="d-flex flex-column">
+            <p><b>3181 </b> Visits</p>
+            <p><b>46 </b> Conversions</p>
+          </div>
+        </div>
+        <div>
+          <h5>Organic Traffic</h5>
+          <div class="d-flex flex-column">
+            <p><b>1591 </b> Visits</p>
+            <p><b>39 </b> Conversions</p>
+          </div>
+        </div>
+        <div>
+          <h5>Search Traffic</h5>
+          <div class="d-flex flex-column">
+            <p><b>291 </b> Visits</p>
+            <p><b>10 </b> Conversions</p>
+          </div>
+        </div>
+      </div>
+      <img style="width: 95%; margin-left: 20px; border-radius: 10px;" src="./images/Screenshot 2023-11-01 162458.png"
+        alt="">
+      <div id="data">
+        <div><b>People</b>
+          <h1>3,499</h1>
+        </div>
+        <div><b>Visits</b>
+          <h1>3,499</h1>
+        </div>
+        <div><b>Converted People</b>
+          <h1>3,499</h1>
+        </div>
+        <div><b>Goal Conversion</b>
+          <h1>3,499</h1>
+        </div>
+        <div><b>Conversion Rate</b>
+          <h1>3,499</h1>
+        </div>
+        <div><b>Cost</b>
+          <h1>3,499</h1>
+        </div>
+        <div><b>Cost Per Acquisition</b>
+          <h1>3,499</h1>
+        </div>
+        <div><b>Cost Per Click</b>
+          <h1>3,499</h1>
+        </div>
+        <div><b>Revenue</b>
+          <h1>3,499</h1>
+        </div>
+        <div><b>Average Goal Value</b>
+          <h1>3,499</h1>
+        </div>
+        <div><b>Revenue Per Person</b>
+          <h1>3,499</h1>
+        </div>
+        <div><b>Revenue Per Converted Person</b>
+          <h1>3,499</h1>
+        </div>
+        <div><b>Profit</b>
+          <h1>3,499</h1>
+        </div>
+        <div><b>Return On Investment</b>
+          <h1>3,499</h1>
+        </div>
+      </div>
+      <div id="footer">
+        <img style="border-radius: 10px;"
+          src="data:image/png;base64,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"
+          alt="">
+        <textarea style="border-radius: 5px; padding: 10px;" cols="120" rows="2"
+          placeholder="How could this page be better? We read every idea, suggestion and complaint."></textarea>
+        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+          Send Fendback
+        </button>
+        <div>
+          <p>Copyright @ 2023 <span class="blue">Awio Web Services LLC</span></p>
+          <p class="blue">Terms pf Service - Knowledge Base - Contact Us</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Enter Your Email and Message Below!</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="email_id" class="col-form-label">Email ID:</label>
+              <input type="text" class="form-control" id="email_id">
+            </div>
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">Message:</label>
+              <textarea class="form-control" id="message-text"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+
+<!-- Modal Side Navbar-->
+<div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable">
+    <div class="modal-content" style="width: 100%; height: 800px;">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="title_modal"></h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</html>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="./index.js"></script>
