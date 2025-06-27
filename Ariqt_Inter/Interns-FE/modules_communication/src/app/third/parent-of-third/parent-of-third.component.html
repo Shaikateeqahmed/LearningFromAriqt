@@ -1,0 +1,11 @@
+<h1>Hi, I am a parent of third module!</h1>
+<p>I will show the increment of child components.</p>
+<hr>
+<h1>Increment of Child of third Module!</h1>
+<h2>{{IncOfChildOfThirdModule}}</h2>
+<h1>Increment of Child of fourth Module!</h1>
+<h2>{{IncOfChildOfFourthModule}}</h2>
+<hr>
+<app-child-of-third (childOfThirdModule) = "msgFromChildOfThirdModule($event)"></app-child-of-third>
+<hr>
+<app-child-of-fourth (childOfFourthModule) = "msgFromChildOfFourthModule($event)"></app-child-of-fourth>

@@ -1,0 +1,79 @@
+#intro{
+    top: 40px;
+}
+
+#navbar{
+    display: flex;
+}
+
+#home{
+    width: 75%; height: 600px; margin: 100px auto auto auto;
+}
+#projects{
+    width: 75%; height: auto; margin: auto; padding-top: 200px;
+}
+#customers{
+    width: 85%; height: auto; margin: auto; padding-top: 200px;
+}
+#about{
+    width: 70%; height: auto; margin: auto; padding: 200px 0px;
+}
+#footer{
+    display: flex;
+    justify-content: space-between;
+}
+#c_card{
+position: relative;
+animation-name: customer;
+animation-duration: 0.5s;
+animation-iteration-count: 2;
+animation-direction: alternate;
+animation-fill-mode: forwards;
+}
+#p_card{
+    position: relative;
+    animation-name: project;
+    animation-duration: 4s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+    }
+
+@keyframes customer {
+    from{
+        top: 0px;
+    }
+    to{
+        top: 200px;
+    }
+}
+@keyframes project {
+    0%   {background-color:#003B46;color: white; left:0px; top:0px;}
+    25%  {background-color:#07575B;color: white; left:200px; top:0px;}
+    50%  {background-color:#66A5AD; left:200px; top:200px;}
+    75%  {background-color:#C4DFE6; left:0px; top:200px;}
+    100% {background-color:white; left:0px; top:0px;}
+  }
+
+@media all and (min-width:200px) and (max-width:768px){
+    #home{
+        width: 100%;
+        margin-top: 50px;
+    }
+    #projects{
+        width: 90%;
+        padding-top: 100px;
+    }
+    #customers{
+        width: 90%;
+        padding-top: 100px;
+    }
+    #about{
+        width: 100%;
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+    #footer{
+        display: none;
+    }
+}

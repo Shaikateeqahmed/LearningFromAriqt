@@ -1,0 +1,8 @@
+<h1>Hi, I am a parent of First module!</h1>
+<button (click)="child1()">Increment child of First module ++</button>
+<button (click)="child2()">Increment child of second module ++</button>
+<hr>
+
+<app-child-of-first [messageForChildOfFirst]="incchild1"></app-child-of-first>
+
+<app-child-of-second [messageForChildOfSecond]="incchild2"></app-child-of-second>

@@ -1,0 +1,38 @@
+#container{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+    margin: 50px 20px 20px 20px;
+}
+
+#container>div>p{
+    margin: 10px;
+}
+
+#container>div>img{
+    width: 100%;
+    border-radius: 20px;
+}
+
+#button{
+    margin: auto;
+    margin-top: 20px;
+    width: 30%;
+    position: sticky;
+    top: 60px;
+}
+#button>button{
+    background-color: lightblue;
+    border: 0px;
+    border-radius: 10px;
+    width: 100px;
+    height: 30px;
+}
+
+#loader{
+width: 100%;
+height: 250px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
