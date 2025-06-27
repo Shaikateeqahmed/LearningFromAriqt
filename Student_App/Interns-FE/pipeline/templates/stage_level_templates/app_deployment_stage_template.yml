@@ -1,0 +1,35 @@
+parameters:
+  - name: environment
+    type: string
+    values:
+      - dev
+      - test
+      - prod
+  - name: serviceConnection
+    type: string
+  - name: subscriptionId
+    type: string
+  - name: appType
+    type: string
+  - name: appName
+    type: string       
+
+stages:
+- stage: AppDeploy
+  displayName: '${{parameters.environment}}: App deployment'       
+
+  jobs:
+    - deployment: DeployApp
+      displayName: DeployApp
+      environment: App-${{parameters.environment}}
+      strategy:
+        runOnce:
+          deploy:
+            steps:   
+              - task: AzureRmWebAppDeployment@4
+                inputs:
+                  ConnectionType: 'AzureRM'
+                  azureSubscription: ${{parameters.serviceConnection}}
+                  appType: ${{parameters.appType}}
+                  WebAppName: '${{parameters.appName}}'
+                  packageForLinux: '$(Pipeline.Workspace)/drop' 
