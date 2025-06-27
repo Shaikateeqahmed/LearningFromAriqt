@@ -1,0 +1,8 @@
+<div class="list-group"><a href="/#/products" class="list-group-item"  >All Products</a>
+</div>
+<div class="list-group" *ngFor="let categories of category_list">
+ <!-- <a href="/products/category?category={{categories.categoryName}}" class="list-group-item"  >{{categories.categoryName}}</a> -->
+ <!-- <a routerLink="['/products/category', {queryParams: {category: categories.categoryName}}]" class="list-group-item"  >{{categories.categoryName}}</a> -->
+ <a (click)="navigateTo('/products/category',categories.categoryName)" class="list-group-item"  >{{categories.categoryName}}</a>
+
+</div>

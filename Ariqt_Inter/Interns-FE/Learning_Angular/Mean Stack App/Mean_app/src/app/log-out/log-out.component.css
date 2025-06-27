@@ -1,0 +1,70 @@
+.container-fluid{
+    padding-top: 60px;
+    text-align: center;
+  }
+  .container-fluid>div>p{
+    margin-top: -70px;
+  }
+#svg_Div{
+  width: 70%;
+   height: 70vh;
+  margin: auto;
+  position: relative;
+  margin-top: -50px;
+}
+#svg_Div>svg:nth-child(6){
+  position: absolute;
+  width: 30%;
+  height: 50%;
+  top:40%;
+  left: 40%;
+  color: #f7d6d6;
+}
+#svg_Div>svg:nth-child(7){
+  position: absolute;
+  width: 15%;
+  height: 25%;
+  top:24%;
+  left: 53%;
+  color: #f7d6d6;
+}
+#svg_Div>svg:nth-child(1){
+  position: absolute;
+  width: 10%;
+  height: 15%;
+  top:10%;
+  left: 75%;
+  color: #cbe0f7;
+}
+#svg_Div>svg:nth-child(4){
+  position: absolute;
+  width: 10%;
+  height: 10%;
+  top:35%;
+  left: 35%;
+  color: #daf0d5;
+}
+#svg_Div>svg:nth-child(2){
+  position: absolute;
+  width: 10%;
+  height: 10%;
+  top:50%;
+  left: 65%;
+  color: #f7f589;
+}
+#svg_Div>svg:nth-child(5){
+  position: absolute;
+  width: 20%;
+  height: 20%;
+  top:70%;
+  left: 25%;
+  color: #eaeeef;
+}
+#svg_Div>svg:nth-child(3){
+  position: absolute;
+  width: 10%;
+  height: 10%;
+  top:10%;
+  left: 40%;
+  color: #e5f4f6;
+}

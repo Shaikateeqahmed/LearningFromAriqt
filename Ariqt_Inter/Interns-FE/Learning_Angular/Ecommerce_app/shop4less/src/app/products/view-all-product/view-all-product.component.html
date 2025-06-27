@@ -1,0 +1,26 @@
+<div *ngIf="loading; else showData"> <img id="loading" src="https://media2.giphy.com/media/fG9XD98E0000sxhC1W/200w.webp?cid=ecf05e47uop23b5r1fx13xx43zit23r2u6m5t4k1gpeam394&ep=v1_gifs_search&rid=200w.webp&ct=g" alt=""></div>
+
+<ng-template #showData>
+    <div class="row row-cols-1 row-cols-md-3 g-4" >
+        <div class="col" *ngFor="let product of Product_list; let i=index" >
+            <div class="card h-100">
+                <img src="{{product.productImg}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title" id="title" routerLink="view-product/{{product.id}}">{{product.productName}}</h5>
+                    <h5 class="card-title">{{product.price | currency : "INR"}}</h5>
+                    <p class="card-text">{{product.description}}</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-body-secondary">{{product.rating}} Stars</small>
+                </div>
+                <div id="btns">
+                    <button class="btn btn-danger" (click)="deleteProduct(product.id)">Delete product</button>
+                    <a href="/#/products/update-product/{{product.id}}" class="btn btn-danger" role="button" >Update Product</a>
+                </div>
+               </div>
+        </div>
+    </div>
+</ng-template>
+
+
+   

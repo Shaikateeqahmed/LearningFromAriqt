@@ -1,0 +1,40 @@
+.container-fluid{
+  padding-top: 60px;
+}
+.container-fluid>img{
+   border: 5px solid lightblue;
+   width: 15%;
+   border-radius: 25px;
+   margin-left: 42.5%;
+   top: 60px;
+   /* overflow: scroll; */
+  }
+#questions{
+  margin-top: 20px;
+}
+#confirm{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-template-rows: repeat(1, 85vh);
+  gap: 50px;
+}
+#confirm>div{
+  padding: 20px;
+}
+#left>img:nth-child(2){
+border: 5px solid lightblue;
+border-radius: 5px;
+width: 50%;
+}
+#left>div>img{
+  border-radius: 5px;
+  width: 30px;
+  }
+  #btns{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 50px;
+  }
+  #btns>button{
+    margin: 15px 0px;
+  }

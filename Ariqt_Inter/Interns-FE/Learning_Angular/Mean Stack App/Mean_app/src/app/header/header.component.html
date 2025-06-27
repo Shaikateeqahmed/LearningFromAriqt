@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+        <img src="../../assets/Logo/Ariqtlogo.png" alt="Web site logo" width="60" height="54" id="logo" (mouseover)="OpenLogoModal(template)">
+      <a class="navbar-brand" href="">Ariqt Knowledge City</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="/signup">Sign Up</a></li>
+                <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+                <div class="btn-group" dropdown>
+                    <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+                            aria-controls="dropdown-basic">
+                     View Account <span class="caret"></span>
+                    </button>
+                    <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+                        role="menu" aria-labelledby="button-basic">
+                      <li role="menuitem"><a class="dropdown-item" href="/logOut"> <svg style="margin-right: 5px;" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-fill-slash" viewBox="0 0 16 16">
+                        <path d="M13.879 10.414a2.501 2.501 0 0 0-3.465 3.465zm.707.707-3.465 3.465a2.501 2.501 0 0 0 3.465-3.465m-4.56-1.096a3.5 3.5 0 1 1 4.949 4.95 3.5 3.5 0 0 1-4.95-4.95ZM11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0m-9 8c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4"/>
+                      </svg>Log Out</a></li>
+                      <li role="menuitem" *ngIf="havingToken"><a class="dropdown-item" (click)="viewProfile()"><img [src]="UserImage" style="border-radius: 50%; border: 2px solid lightblue;" width="25" height="25" alt=""> View Profile</a></li>
+                    </ul>
+                  </div>
+            </ul>
+        </div>
+    </div>
+  </nav>
+  
+
+  <ng-template #template>
+    <div class="modal-body">
+      <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()" style="color: white;opacity: 1;">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+      </button>
+    </div>
+  </ng-template>

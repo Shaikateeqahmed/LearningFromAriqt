@@ -1,0 +1,30 @@
+.navbar{
+    background-color: white;
+}
+#button-basic{
+    background-color: white;
+    color: black;
+    border: 0px;
+}
+a{
+    color: black;
+}
+.navbar-brand{
+    font-size: 30px;
+    font-family : 'Times New Roman', Times, serif;
+}
+#logo{
+    border-radius: 50%;
+    margin-right: 10px;
+}
+#logo:hover{
+    cursor: pointer;
+}
+.modal-body{
+    height: 500px;
+    background-image: url('../../assets/Logo/Ariqtlogo.png');
+    border-radius: 10px;
+}
+.close{
+    filter: brightness(0) invert(1);
+}

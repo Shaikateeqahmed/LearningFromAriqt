@@ -1,0 +1,258 @@
+.container-fluid{
+    padding-top: 70px;
+    display: flex;
+  }
+#AllUsers{
+  border: 1px solid gray;
+  width: 25%;
+  padding: 25px;
+  border-radius: 10px;
+  margin-top: 25px;
+}
+#AllUsers:hover{
+ cursor: pointer;
+}
+.Related_User{
+  width: 95%;
+  display: flex;
+  border: 1px solid lightgray;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: auto;
+  margin-bottom: 5px;
+
+}
+.Related_User>img{
+    border: 2px solid lightgray;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+.Related_User>div{
+ padding: 0px 10px;
+}
+.Related_User>div>p{
+ margin-top: -10px;
+ margin-bottom: -10px;
+ }
+ #Chat_Board{
+  width: 75%;
+  height: 93vh;
+  border: 1px ;
+  left: 25.5%;
+  text-align: center;
+  position: relative;
+  position: fixed;
+ }
+ #NoChat{
+  width: 75%;
+  height: 93vh;
+  left: 25.5%;
+  position: fixed;
+ }
+ #NoChat>div{
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+ }
+ #NoChat>div>svg:nth-child(1){
+  position: absolute;
+  top: 15%;
+  left: 10%;
+  color: #f7c1c1;
+  width: 35%;
+  height: 35%;
+ }
+ #NoChat>div>svg:nth-child(2){
+  position: absolute;
+  top: 25%;
+  left: 20%;
+  color: #dce8f7;
+  width: 35%;
+  height: 35%;
+ }
+ #NoChat>div>svg:nth-child(3){
+  position: absolute;
+  top: 35%;
+  left: 30%;
+  color: #c6b7d8;
+  width: 35%;
+  height: 35%;
+ }
+ #NoChat>div>h2{
+  position: absolute;
+  top: 75%;
+  left: 25%;
+  color: #b0e0de;
+  width: 40%;
+  height: 35%;
+  font-family: cursive;
+ }
+ #footer{
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  height: 60px;
+  display: flex;
+  justify-content: space-around;
+  padding-right: 5px;
+ }
+ #footer>form{
+  width: 85%;
+  padding: 5px 0px;
+ }
+ #footer>form>input{
+  width: 100%;
+  height: 50px;
+  border: 2px solid lightblue;
+  border-radius: 5px 0px 0px  5px;
+ }
+ #footer>svg{
+  margin-top: 20px;
+ }
+#Chat_div{
+  height: 80vh;
+}
+#NoWeChat{
+   height: 100%;
+   position: relative;
+}
+
+#NoWeChat>svg:nth-child(1){
+ position: absolute;
+ height: 35%;
+ width: 35%;
+ top: 15%;
+ left: 20%;
+ color: #c0e7e3;
+}
+#NoWeChat>svg:nth-child(2){
+  position: absolute;
+  height: 30%;
+  width: 30%;
+  top: 30%;
+  left: 35%;
+  color:#def3f2;
+ }
+#NoWeChat>h2{
+  color: #bce5e3;
+  position: absolute;
+  top: 75%;
+  left: 25%;
+  width: 50%;
+  height: 35%;
+  font-family: cursive;
+}
+#WeChat{
+  display: flex;
+  flex-direction: column;
+  padding:0px 30px;
+  gap: 20px;
+  height: 100%;
+  /* overflow: auto; */
+  overflow-y: auto;
+}
+#chat{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  position: relative;
+}
+.UserChats{
+  height: 75px;
+}
+.UserChats>div:nth-child(1){
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 10px;
+  color: gray;
+  width: 200px;
+  position: absolute;
+  right: 0px;
+}
+.UserChats>div:nth-child(2){
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding: 5px 15px;
+  margin-top: -10px;
+  border-radius: 10px;
+  text-align: left;
+  position: absolute;
+  top: 40px;
+  right: 0px;
+  height: auto;
+}
+.othersChats{
+  display: flex;
+  width: 100%;
+  height: auto;
+}
+.othersChats>img{
+  border: 2px solid lightgray;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-top: 20px;
+    margin-right: 10px;
+}
+.othersChats>div{
+  width: 100%;
+  float: left;
+}
+.othersChats>div>div:nth-child(1){
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 10px;
+  color: gray;
+  width: 200px;
+  position: absolute;
+  left: 45px;
+}
+.othersChats>div>div:nth-child(2){
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding: 5px 15px;
+  margin-top: -10px;
+  border-radius: 10px;
+  text-align: left;
+  position: absolute;
+  top: 40px;
+  left: 55px;
+  height: auto;
+}
+
+#chat_text>svg{
+  margin: 0px 5px;
+}
+#chat_text>svg:nth-child(1){
+  margin-left: 10px;
+}
+#ImageBox{
+  width: 30%;
+  height: 300px;
+  padding: 0px;
+  display: flex;
+  align-items: end;
+}
+#ImageBox>img{
+  width: 90%;
+  height: 100%;
+  border-radius: 10px;
+}
+#general_channal{
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  display: flex;
+  width: 100%;
+  padding: 10px 0px 0px 10px;
+}
+#general_channal>img{
+  border: 2px solid lightgray;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+#general_channal>div>p{
+  margin-top: -10px;
+}
+

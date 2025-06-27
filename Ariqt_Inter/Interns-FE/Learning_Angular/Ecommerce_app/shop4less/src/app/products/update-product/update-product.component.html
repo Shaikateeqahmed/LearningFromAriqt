@@ -1,0 +1,30 @@
+<h1>Update A Product</h1>
+<div id="createProduct">
+    <form [formGroup] = "updateProduct">
+        <h1>Update A Product</h1>
+        <label for="">Enter Product Category</label><br>
+        <input type="text" placeholder="Enter Category" formControlName = "category"><br> 
+        <div *ngIf="updateProduct.get('category')?.hasError('required') && updateProduct.get('category')?.touched" class="text-danger">*Category is required</div>      
+        <label for="">Enter Product Category</label><br>                
+        <input type="text" placeholder="Enter Product Name" formControlName = "productName"><br>
+        <div *ngIf="updateProduct.get('productName')?.hasError('required') && updateProduct.get('productName')?.touched" class="text-danger">*Product Name is required</div>      
+        <label for="">Enter Product Category</label><br>
+        <input type="text" placeholder="Enter Description" formControlName = "description">
+        <div *ngIf="updateProduct.get('description')?.hasError('required') && updateProduct.get('description')?.touched" class="text-danger">*Description is required</div>      
+        <label for="">Enter Product Category</label><br>
+        <input type="text" placeholder="Enter Rating" formControlName = "rating"><br>
+        <div *ngIf="updateProduct.get('rating')?.hasError('required') && updateProduct.get('rating')?.touched" class="text-danger">*Rating is required</div>      
+        <label for="">Enter Product Category</label><br>
+        <input type="text" placeholder="Enter Price" formControlName = "price"><br>
+        <div *ngIf="updateProduct.get('price')?.hasError('required') && updateProduct.get('price')?.touched" class="text-danger">*Price is required</div>      
+        <label for="">Enter Product Category</label><br>
+        <input type="text" placeholder="Enter Product Image" formControlName = "productImg"><br>
+        <div *ngIf="updateProduct.get('productImg')?.hasError('required') && updateProduct.get('productImg')?.touched" class="text-danger">*Product Image is required</div>      
+        <label for="">Enter Product Category</label><br>
+        <input type="text" placeholder="Enter Availability" formControlName = "IsAvailable"><br>
+        <label for="">Enter Product Category</label><br>
+        <input type="text" placeholder="Enter Reviews" formControlName = "reviews"><br>
+        <button class="btn btn-primary" [disabled]="!updateProduct.valid" (click)="updateProductForm()">Update Product</button>
+   </form>
+ <img src="https://announcekit.app/blog/wp-content/uploads/2021/05/shutterstock_1235711227.jpg" alt="">
+</div>

@@ -1,0 +1,143 @@
+<!-- <div id="container" *ngIf="!UpdateDiv">
+    <div id="top"><h3>Profile of {{UserDetails.name}}</h3> <button class="btn btn-primary" (click)="Show_Update_Div()">Edit Profile</button></div>
+    <div id="main_Container">
+        <div id="left">
+            <div id="liveAlertPlaceholder"></div>
+            <img [src]=UserDetails.profilePic alt="">
+            <h2>{{UserDetails.name}}</h2>
+            <p><strong>Date Of Birth :</strong> {{UserDetails.dateOfBirth | date : 'dd-mm-yyyy'}}</p>
+            <div><img src="https://www.svgrepo.com/show/127575/location-sign.svg" alt="">  {{UserDetails.location}}</div>
+          </div>
+          <div id="right">
+            <h2>Profession</h2>
+            <p style="font-size: 25px;">{{UserDetails.profession}}</p>
+            <h2>Professional Summary</h2>
+            <p>{{UserDetails.discription}}</p>
+            <h2>Skills:</h2>
+            <ul>
+                <li *ngFor="let skill of UserDetails.skills">
+                    {{skill}}
+                </li>
+            </ul>
+             <h2>Technology Knows:</h2>
+             <ul>
+                <li *ngFor="let tech of UserDetails.tech">
+                    {{tech}}
+                </li>
+            </ul>
+             <h2>Experiance:</h2>
+             <p>{{UserDetails.experiance}}</p>
+            </div>
+    </div>
+</div> -->
+<div id="top" *ngIf="!UpdateDiv"><h3>Profile of {{UserDetails.name}}</h3> <button class="btn btn-primary" (click)="Show_Update_Div()">Edit Profile</button></div>
+<div class="card mb-3" *ngIf="!UpdateDiv">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img [src]=UserDetails.profilePic class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h3 class="card-title">{{UserDetails.name}}</h3>
+        <p><strong>Date Of Birth :</strong> {{UserDetails.dateOfBirth | date : 'dd-mm-yyyy'}}</p> 
+        <div id="location"><img src="https://www.svgrepo.com/show/127575/location-sign.svg" alt="">  {{UserDetails.location}}</div>     
+        <hr>  
+        <div id="right">
+          <h2>Profession</h2>
+          <p style="font-size: 25px;">{{UserDetails.profession}}</p>
+          <h2>Professional Summary</h2>
+          <p>{{UserDetails.discription}}</p>
+          <h2>Skills:</h2>
+          <ul>
+              <li *ngFor="let skill of UserDetails.skills">
+                  {{skill}}
+              </li>
+          </ul>
+           <h2>Technology Knows:</h2>
+           <ul>
+              <li *ngFor="let tech of UserDetails.tech">
+                  {{tech}}
+              </li>
+          </ul>
+           <h2>Experiance:</h2>
+           <p>{{UserDetails.experiance}}</p>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="container2" *ngIf="UpdateDiv" >
+    <form class="row g-3" id="UpdateForm" >
+        <div class="col-md-6">
+            <label for="profilePic" class="form-label">Profile Picture</label>
+            <div id="img_div">
+                <img id="profilePic" [src]=UserDetails.profilePic alt="">
+                <svg tooltip="Edit Profile Picture" placement="right" (click)="EditProfilePic(EditProfilePicture)" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-images" viewBox="0 0 16 16">
+                    <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/>
+                    <path d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2M14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1M2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10"/>
+                  </svg>
+            </div>
+            
+          </div>
+        <div class="col-md-6">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" value="{{UserDetails.name}}" >
+        </div>
+        <div class="col-md-4">
+          <label for="dateOfBirth" class="form-label">Date Of Birth</label>
+          <input type="date" class="form-control" id="dateOfBirth"  value="{{UserDetails.dateOfBirth}}">
+        </div>
+        <div class="col-md-4">
+            <label for="location" class="form-label">Location</label>
+            <input type="text" class="form-control" id="location"  value="{{UserDetails.location}}">
+          </div>
+        <div class="col-12">
+          <label for="profession" class="form-label">Profession</label>
+          <input type="text" class="form-control" id="profession"  value="{{UserDetails.profession}}">
+        </div>
+        <div class="col-12">
+          <label for="description" class="form-label">Professional Summary</label>
+          <input type="text" class="form-control" id="description"  value="{{UserDetails.discription}}">
+        </div>
+        <div class="col-md-4">
+          <label for="experiance" class="form-label">Experiance</label>
+          <input type="text" class="form-control" id="experiance"  value="{{UserDetails.experiance}}">
+        </div>
+        <div class="col-md-4">
+            <label for="skills" class="form-label">Skills</label>
+            <input type="text" class="form-control" id="skills"  value="{{UserDetails.skills}}">
+        </div>
+        <div class="col-md-4">
+          <label for="tech" class="form-label">Technologie's Know</label>
+          <input type="text" class="form-control" id="tech"  value="{{UserDetails.tech}}">
+        </div>
+       
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary" (click)="UpdateProfile(template)">Edit Profile</button>
+        </div>
+      </form>
+</div>
+
+<ng-template #EditProfilePicture>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">New Profile Picture</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+   <img style="width: 98%; margin: auto; border-radius: 10px; border: 5px solid lightblue;" [src]="NewProfilePicture" alt="">
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="modalRef?.hide()" (click)="UpdateProfilePic()">Edit Profile Picture</button>
+  </div>
+</ng-template>
+
+ 
+<ng-template #template>
+  <div class="modal-body" style="color: #055160;" style="background-color: #cff4fc; border-radius: 5px;">
+    <h6>{{UpdateMsg}}</h6>
+    You will be redirect to Profile Page...
+  </div>
+</ng-template>

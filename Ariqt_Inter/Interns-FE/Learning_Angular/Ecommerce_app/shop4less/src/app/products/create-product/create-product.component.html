@@ -1,0 +1,30 @@
+<h1>Create A Product</h1>
+<div id="createProduct">
+    <form [formGroup] = "addProduct">
+        <h1>Add A Product</h1>
+        <label for="">Enter Product Category</label><br>
+        <input type="text" placeholder="Enter Category" formControlName = "category"><br> 
+        <div *ngIf="addProduct.get('category')?.hasError('required') && addProduct.get('category')?.touched" class="text-danger">*Category is required</div>      
+        <label for="">Enter Product Category</label><br>                
+        <input type="text" placeholder="Enter Product Name" formControlName = "productName"><br>
+        <div *ngIf="addProduct.get('productName')?.hasError('required') && addProduct.get('productName')?.touched" class="text-danger">*Product Name is required</div>      
+        <label for="">Enter Product Category</label><br>
+        <input type="text" placeholder="Enter Description" formControlName = "description">
+        <div *ngIf="addProduct.get('description')?.hasError('required') && addProduct.get('description')?.touched" class="text-danger">*Description is required</div>      
+        <label for="">Enter Product Category</label><br>
+        <input type="text" placeholder="Enter Rating" formControlName = "rating"><br>
+        <div *ngIf="addProduct.get('rating')?.hasError('required') && addProduct.get('rating')?.touched" class="text-danger">*Rating is required</div>      
+        <label for="">Enter Product Category</label><br>
+        <input type="text" placeholder="Enter Price" formControlName = "price"><br>
+        <div *ngIf="addProduct.get('price')?.hasError('required') && addProduct.get('price')?.touched" class="text-danger">*Price is required</div>      
+        <label for="">Enter Product Category</label><br>
+        <input type="text" placeholder="Enter Product Image" formControlName = "productImg"><br>
+        <div *ngIf="addProduct.get('productImg')?.hasError('required') && addProduct.get('productImg')?.touched" class="text-danger">*Product Image is required</div>      
+        <label for="">Enter Product Category</label><br>
+        <input type="text" placeholder="Enter Availability" formControlName = "IsAvailable"><br>
+        <label for="">Enter Product Category</label><br>
+        <input type="text" placeholder="Enter Reviews" formControlName = "reviews"><br>
+        <button class="btn btn-primary" [disabled]="!addProduct.valid" (click)="addProductForm()">Add Product</button>
+    </form>
+    <img src="https://www.uplinkly.com/wp-content/uploads/marketplaces-to-sell-digital-products.jpg" alt="">
+</div>

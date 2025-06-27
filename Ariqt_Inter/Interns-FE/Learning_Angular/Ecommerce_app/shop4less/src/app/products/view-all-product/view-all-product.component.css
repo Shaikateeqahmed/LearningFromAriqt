@@ -1,0 +1,22 @@
+.card{
+    padding-bottom: 10px;
+}
+.card>img{
+ height: 300px;
+}
+#title{
+    color:blueviolet;
+}
+
+#title:hover{
+    text-decoration:underline blueviolet;
+    cursor: pointer;
+}
+#btns{
+    display: flex;
+    justify-content: space-around;
+   }
+#loading{
+    width: 100%;
+    height: 92vh;
+}

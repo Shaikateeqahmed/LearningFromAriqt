@@ -1,0 +1,25 @@
+<div class="card">
+  <div class="card-header">
+    Snacks
+  </div>
+  <div class="card-body">
+    <div class="row">
+         <div class="col-4 fw-bold text-center">name</div>
+         <div class="col-4 fw-bold text-center">price</div>
+    </div>
+  </div>
+  @for(snackItem of filteredSnacks(); track snackItem){
+    <div>
+      <div>
+        <div class="row mb-2">
+          <div class="col-4 text-center">
+            {{snackItem.name}}
+          </div>
+          <div class="col-4 text-center">
+            {{snackItem.price}}
+          </div>
+        </div>
+      </div>
+    </div>
+  }@empty { No snacks available that match the filter }
+</div>

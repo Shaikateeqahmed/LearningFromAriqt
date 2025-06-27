@@ -1,0 +1,79 @@
+<div id="main_div">
+  <div id="Carosal_div">
+    <h1 id="h1"></h1>
+    <h1 id="h2"></h1>
+    <h1 id="h3"></h1>
+  </div>
+
+  <div id="thought_of_users">
+    <h1>Thought's Of Users</h1>
+    <div id="thought_div">
+    </div>
+  </div>
+
+  <!-- <div id="accordion_div">
+    <h1>F & Q</h1>
+    <accordion [isAnimated]="true" id="accordion">
+      <accordion-group heading="Why you choice Ariqt Knowledge city?" class="accordion-group"  >
+        This content is straight in the template.
+      </accordion-group>
+      <accordion-group heading="Another group" class="accordion-group">
+        <p>Some content</p>
+      </accordion-group>
+      <accordion-group heading="Another group" class="accordion-group">
+        <p>Some content</p>
+      </accordion-group>
+      <accordion-group heading="Another group" class="accordion-group">
+        <p>Some content</p>
+      </accordion-group>
+    </accordion>
+  </div> -->
+  <div id="bg_image">
+  <div>
+    <h1>Knowledge Connect, Your Ultimate Platform for Seamless and Engaging Social Interactions</h1>
+    <p>Welcome to Knowledge Connect, where seamless and engaging social interactions unfold effortlessly. Discover a platform that goes beyond conventional connections, offering a space where individuals unite through shared insights, meaningful conversations, and a passion for knowledge.</p>
+  </div>
+  <img src="../../assets/Logo/3d-render-graduation-cap-with-diploma-certificate.jpg" alt="">
+  </div>
+  <div id="footer">
+    <div>
+      <img src="../../assets/Logo/Ariqtlogo.png" alt="">
+      <h1>Ariqt Knowledge City</h1>
+    </div>
+    <p>@CopyRight Ariqt Knowledge City</p>
+    <button class="btn btn-primary" (click)="feedBackForm(FeedBackModal)">Send FeedBack</button>
+  </div>
+</div>
+
+
+<ng-template #FeedBackModal>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Send A Valuable FeedBack....</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="FeedBacK">
+      <div class="mb-3">
+        <label for="recipient-name" class="col-form-label">Email Address:</label>
+        <input type="text" class="form-control" id="recipient-name" formControlName='EmailID'
+          placeholder="Enter Email ID">
+      </div>
+      <div class="mb-3">
+        <label for="message-text" class="col-form-label">FeedBack:</label>
+        <textarea class="form-control" id="message-text" formControlName='FeedBack'
+          placeholder="FeedBacK Message"></textarea>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button (click)="modalRef?.hide()" (click)="SendFeed(template)" class="btn btn-primary">Send FeedBack</button>
+  </div>
+</ng-template>
+
+<ng-template #template>
+  <div class="modal-body" style="background-color: lightgoldenrodyellow">
+    <h3>{{msg}}</h3>
+  </div>
+</ng-template>

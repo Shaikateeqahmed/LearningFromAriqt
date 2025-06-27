@@ -1,0 +1,182 @@
+<div class="container-fluid">
+    <div id="AllUsers">
+      <div id="general_channal">
+        <img src="../../assets/Logo/Ariqtlogo.png" alt="" tooltip="This is a General Channal Of Ariqt Knowledge City" placement="bottom">
+          <div tooltip="Start Chat in General Channal of Ariqt Knowledge City" placement="right" (click)="general_channal()">
+              <h5>Ariqt Knowledge City</h5>
+              <p>General Channal</p>
+          </div>
+      </div>
+        <div>
+            <h3 style="color: gray;">Related Professional's</h3>
+            <div class="Related_User" *ngFor="let user of RelatedUsers" >
+                <img [src]="user.profilePic" alt="" (click)="ViewProfile(View_Profile,user)" tooltip="View Profile of {{user.name}}" placement="bottom">
+                <div (click)="startChat(user.UserID,user.name,user.profilePic)" tooltip="Start Chat With {{user.name}}" placement="right">
+                    <h5>{{user.name}}</h5>
+                    <p>{{user.profession}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <h3>Other Professional's</h3>
+            <div class="Related_User" *ngFor="let user of OtherUsers">
+                <img [src]="user.profilePic" alt="" (click)="ViewProfile(View_Profile,user)" tooltip="View Profile of {{user.name}}" placement="bottom">
+                <div (click)="startChat(user.UserID,user.name,user.profilePic)" tooltip="Start Chat With {{user.name}}" placement="right">
+                    <h5>{{user.name}}</h5>
+                    <p>{{user.profession}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="Chat_Board" [class.show]="selectChart">
+        <h2 *ngIf="showChats && selectChart">Knowledge Share with {{name}}</h2>
+        <div id="Chat_div">
+            <div id="NoWeChat"  *ngIf="!showChats && selectChart" >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wechat" viewBox="0 0 16 16">
+                <path d="M11.176 14.429c-2.665 0-4.826-1.8-4.826-4.018 0-2.22 2.159-4.02 4.824-4.02S16 8.191 16 10.411c0 1.21-.65 2.301-1.666 3.036a.324.324 0 0 0-.12.366l.218.81a.616.616 0 0 1 .029.117.166.166 0 0 1-.162.162.177.177 0 0 1-.092-.03l-1.057-.61a.519.519 0 0 0-.256-.074.509.509 0 0 0-.142.021 5.668 5.668 0 0 1-1.576.22ZM9.064 9.542a.647.647 0 1 0 .557-1 .645.645 0 0 0-.646.647.615.615 0 0 0 .09.353Zm3.232.001a.646.646 0 1 0 .546-1 .645.645 0 0 0-.644.644.627.627 0 0 0 .098.356"/>
+                <path d="M0 6.826c0 1.455.781 2.765 2.001 3.656a.385.385 0 0 1 .143.439l-.161.6-.1.373a.499.499 0 0 0-.032.14.192.192 0 0 0 .193.193c.039 0 .077-.01.111-.029l1.268-.733a.622.622 0 0 1 .308-.088c.058 0 .116.009.171.025a6.83 6.83 0 0 0 1.625.26 4.45 4.45 0 0 1-.177-1.251c0-2.936 2.785-5.02 5.824-5.02.05 0 .1 0 .15.002C10.587 3.429 8.392 2 5.796 2 2.596 2 0 4.16 0 6.826m4.632-1.555a.77.77 0 1 1-1.54 0 .77.77 0 0 1 1.54 0m3.875 0a.77.77 0 1 1-1.54 0 .77.77 0 0 1 1.54 0"/>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-plus" viewBox="0 0 16 16">
+                <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855a.75.75 0 0 0-.124 1.329l4.995 3.178 1.531 2.406a.5.5 0 0 0 .844-.536L6.637 10.07l7.494-7.494-1.895 4.738a.5.5 0 1 0 .928.372l2.8-7Zm-2.54 1.183L5.93 9.363 1.591 6.602l11.833-4.733Z"/>
+                <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0m-3.5-2a.5.5 0 0 0-.5.5v1h-1a.5.5 0 0 0 0 1h1v1a.5.5 0 0 0 1 0v-1h1a.5.5 0 0 0 0-1h-1v-1a.5.5 0 0 0-.5-.5"/>
+              </svg>
+              <h2>Start Chit Chat With {{name}}</h2>
+            </div>
+            <div id="WeChat"  [class.show]="showChats" #Wechat>
+              <div *ngFor="let chat of chatsOfUser; index as i; last as l" id="chat">
+                <div  #last *ngIf="UserID==chat.UserID; else others" [ngClass]=" 'UserChats' ">
+                  <div><p>{{chat.Date}}</p> <p *ngIf="chat.Edited==true">Edited</p>  <p>{{chat.Time}}</p></div>
+                  <div *ngIf="chat.Text.includes('https'); else Text" id="chat_text" id="ImageBox"> <img [src]="chat.Text" alt=""> 
+                  <svg (click)="Delete_msg(chat._id)"  width="25" height="25" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path fill="#000000" d="M352 192V95.936a32 32 0 0 1 32-32h256a32 32 0 0 1 32 32V192h256a32 32 0 1 1 0 64H96a32 32 0 0 1 0-64h256zm64 0h192v-64H416v64zM192 960a32 32 0 0 1-32-32V256h704v672a32 32 0 0 1-32 32H192zm224-192a32 32 0 0 0 32-32V416a32 32 0 0 0-64 0v320a32 32 0 0 0 32 32zm192 0a32 32 0 0 0 32-32V416a32 32 0 0 0-64 0v320a32 32 0 0 0 32 32z"/></svg>                </div>
+                  <ng-template #Text>
+                    <div  id="chat_text">{{chat.Text}}<svg (click)="openModal(template,chat.Text,chat._id)" data-bs-toggle="modal" data-bs-target="#exampleModal" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-vector-pen" viewBox="0 0 16 16" >
+                      <path fill-rule="evenodd" d="M10.646.646a.5.5 0 0 1 .708 0l4 4a.5.5 0 0 1 0 .708l-1.902 1.902-.829 3.313a1.5 1.5 0 0 1-1.024 1.073L1.254 14.746 4.358 4.4A1.5 1.5 0 0 1 5.43 3.377l3.313-.828L10.646.646zm-1.8 2.908-3.173.793a.5.5 0 0 0-.358.342l-2.57 8.565 8.567-2.57a.5.5 0 0 0 .34-.357l.794-3.174-3.6-3.6z"/>
+                      <path fill-rule="evenodd" d="M2.832 13.228 8 9a1 1 0 1 0-1-1l-4.228 5.168-.026.086.086-.026z"/>
+                    </svg>
+                    <svg (click)="Delete_msg(chat._id)" width="16" height="16" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path fill="#000000" d="M352 192V95.936a32 32 0 0 1 32-32h256a32 32 0 0 1 32 32V192h256a32 32 0 1 1 0 64H96a32 32 0 0 1 0-64h256zm64 0h192v-64H416v64zM192 960a32 32 0 0 1-32-32V256h704v672a32 32 0 0 1-32 32H192zm224-192a32 32 0 0 0 32-32V416a32 32 0 0 0-64 0v320a32 32 0 0 0 32 32zm192 0a32 32 0 0 0 32-32V416a32 32 0 0 0-64 0v320a32 32 0 0 0 32 32z"/></svg>                </div>
+                  </ng-template>
+                </div>
+                <ng-template #others #last>
+                  <div [ngClass]=" 'othersChats' ">
+                    <img [src]="UserImage" alt="">
+                  <div>
+                    <div><p>{{chat.Date}}</p><p>{{chat.Time}}</p></div>
+                    <div *ngIf="chat.Text.includes('https'); else Text" id="chat_text" id="ImageBox"> <img [src]="chat.Text" alt=""> 
+                      </div>
+                      <ng-template #Text>
+                        <div  id="chat_text">{{chat.Text}}</div>
+                      </ng-template>
+                  </div>
+                  </div>
+                </ng-template>
+
+              </div>
+            </div>
+        </div>
+        
+        <div id="footer" *ngIf="selectChart">
+         <form [formGroup]="ChatForm">
+            <input type="text" placeholder="Text Or Speak" formControlName ="Text" id="Text" >
+         </form>
+         <svg xmlns="http://www.w3.org/2000/svg" (click)="Speak()" width="25" height="30" fill="currentColor" class="bi bi-mic-fill" viewBox="0 0 16 16">
+            <path d="M5 3a3 3 0 0 1 6 0v5a3 3 0 0 1-6 0z"/>
+            <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5"/>
+          </svg>
+          <svg (click)="sendImage(SendImage)" xmlns="http://www.w3.org/2000/svg" width="25" height="30" fill="currentColor" class="bi bi-images" viewBox="0 0 16 16">
+            <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/>
+            <path d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2M14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1M2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-send-fill" viewBox="0 0 16 16" (click)="Chat()" *ngIf="chat">
+            <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
+          </svg>
+        </div>
+    </div>
+    <div *ngIf="!selectChart" id="NoChat">
+        <div><svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-chat-left-quote-fill" viewBox="0 0 16 16">
+            <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4.414a1 1 0 0 0-.707.293L.854 15.146A.5.5 0 0 1 0 14.793zm7.194 2.766a1.688 1.688 0 0 0-.227-.272 1.467 1.467 0 0 0-.469-.324l-.008-.004A1.785 1.785 0 0 0 5.734 4C4.776 4 4 4.746 4 5.667c0 .92.776 1.666 1.734 1.666.343 0 .662-.095.931-.26-.137.389-.39.804-.81 1.22a.405.405 0 0 0 .011.59c.173.16.447.155.614-.01 1.334-1.329 1.37-2.758.941-3.706a2.461 2.461 0 0 0-.227-.4zM11 7.073c-.136.389-.39.804-.81 1.22a.405.405 0 0 0 .012.59c.172.16.446.155.613-.01 1.334-1.329 1.37-2.758.942-3.706a2.466 2.466 0 0 0-.228-.4 1.686 1.686 0 0 0-.227-.273 1.466 1.466 0 0 0-.469-.324l-.008-.004A1.785 1.785 0 0 0 10.07 4c-.957 0-1.734.746-1.734 1.667 0 .92.777 1.666 1.734 1.666.343 0 .662-.095.931-.26z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-chat-left-text" viewBox="0 0 16 16">
+            <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+            <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6m0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-messenger" viewBox="0 0 16 16">
+            <path d="M0 7.76C0 3.301 3.493 0 8 0s8 3.301 8 7.76-3.493 7.76-8 7.76c-.81 0-1.586-.107-2.316-.307a.639.639 0 0 0-.427.03l-1.588.702a.64.64 0 0 1-.898-.566l-.044-1.423a.639.639 0 0 0-.215-.456C.956 12.108 0 10.092 0 7.76m5.546-1.459-2.35 3.728c-.225.358.214.761.551.506l2.525-1.916a.48.48 0 0 1 .578-.002l1.869 1.402a1.2 1.2 0 0 0 1.735-.32l2.35-3.728c.226-.358-.214-.761-.551-.506L9.728 7.381a.48.48 0 0 1-.578.002L7.281 5.98a1.2 1.2 0 0 0-1.735.32z"/>
+          </svg>
+          <h2>Select A Professional to See or Start a Chat's</h2>
+        </div>
+    </div>
+</div>
+
+
+  
+  
+
+
+  <!-- Modal For Update Message -->
+  <ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Edit Your Message</h4>
+      <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="mb-3">
+          <label for="message-text" class="col-form-label">Message:</label>
+          <textarea class="form-control" id="message-text"></textarea>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary close pull-right" aria-label="Close" (click)="modalRef?.hide()" (click)="Update_msg()">Edit Message</button>
+    </div>
+  </ng-template>
+
+<!-- Model for View Profile of Other User -->
+  <ng-template #View_Profile>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Profile Of {{View_Profile_Name}}</h4>
+      <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <img [src]="View_Profile_Image" class="mb-3" style="width: 95%; border: 3px solid lightblue; border-radius: 10px 50px ; padding: 10px;" alt="">
+      <h4>{{View_Profile_Name}}</h4>
+      <p><strong>Location</strong> : {{View_Profile_Location}}</p>
+      <p><strong>Profession</strong> : {{View_Profile_Profession}}</p>
+      <p><strong>Professional Summary</strong> : {{View_Profile_description}}</p>
+    </div>
+  </ng-template>
+
+  <!-- Modal for send image -->
+  <ng-template #SendImage>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Sending A Image</h4>
+      <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <img [src]="Image" alt="" style="height: 400px; width: 98%;">
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary close pull-right" aria-label="Close" (click)="modalRef?.hide()" (click)="ImageSend()">Send Image</button>
+    </div>
+  </ng-template>
+
+  <!-- Modal for Speaker -->
+  <ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Modal</h4>
+      <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      This is a modal.
+    </div>
+  </ng-template>

@@ -1,0 +1,100 @@
+<div id="container">
+    <form [formGroup]="signUpForm" *ngIf="!verification; else verify">
+      <div id="liveAlertPlaceholder"></div>
+      <div *ngIf="alertMsg" class="alert alert-info alert-dismissible fade show" role="alert">
+        <p>OTP send via Email, Please Check Our Email!</p>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+        <h1 class="mb-3">Sign Up</h1>
+        <div class="mb-3">
+            <label for="UserName" class="form-label">User Name</label>
+            <input type="text" class="form-control" id="UserName" formControlName="UserName">
+            <div *ngIf="signUpForm.get('UserName')?.hasError('required') && signUpForm.get('UserName')?.touched" class="text-danger">* User Name is Required</div>
+          </div>
+        <div class="mb-3">
+          <label for="UserEmail" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="UserEmail" aria-describedby="emailHelp" formControlName="UserEmail">
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+          <div *ngIf="signUpForm.get('UserEmail')?.hasError('required') && signUpForm.get('UserEmail')?.touched" class="text-danger">* Email Address is Required</div>
+          <div *ngIf=" !signUpForm.get('UserEmail')?.valid && signUpForm.get('UserEmail')?.dirty" class="text-danger">* Invalid Email Address</div>
+        </div>
+        <div class="mb-3">
+          <label for="Password" class="form-label">Password</label>
+          <div class="input-group">
+            <input [type]="fieldTextType ? 'text' : 'password'" class="form-control" id="Password" formControlName="Password" placeholder="Password At Least have one UpperCase, LowerCase, Number, Special Characters">
+            <div (click)="ShowPassword()" class="input-group-append" style="width: 40px; background-color: lightblue; border-radius: 0px 5px 5px 0px;">
+              <svg *ngIf="showPassword" style="margin-left:7px; margin-top:5px; color:#0d6efd;" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
+                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>
+              </svg>
+              <svg *ngIf="!showPassword" style="margin-left:7px; margin-top:5px; color:#0d6efd;" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-eye-slash-fill" viewBox="0 0 16 16">
+                <path d="m10.79 12.912-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7.029 7.029 0 0 0 2.79-.588M5.21 3.088A7.028 7.028 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474L5.21 3.089z"/>
+                <path d="M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829l-2.83-2.829zm4.95.708-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829zm3.171 6-12-12 .708-.708 12 12z"/>
+              </svg>
+           </div>
+          </div>
+          <div *ngIf="!signUpForm.get('Password')?.valid && signUpForm.get('Password')?.dirty" class="text-danger">* Password Should include Uppercase, Lowercase, Numbers, Special Characters, 8 Characters.</div>
+          <div *ngIf="signUpForm.get('Password')?.hasError('required') && signUpForm.get('Password')?.touched" class="text-danger">* Password is Required</div>
+        </div>
+        <div class="mb-3">
+          <label for="ConfirmPassword" class="form-label">Comform Password</label>
+          <div class="input-group">
+            <input [type]="fieldTextType2 ? 'text' : 'password'" class="form-control" id="ConfirmPassword" formControlName="ConfirmPassword">
+            <div (click)="ShowComfirmPassword()" class="input-group-append" style="width: 40px; background-color: lightblue; border-radius: 0px 5px 5px 0px;">
+              <svg *ngIf="showConfirmPassword" style="margin-left:7px; margin-top:5px; color:#0d6efd;" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
+                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>
+              </svg>
+              <svg *ngIf="!showConfirmPassword" style="margin-left:7px; margin-top:5px; color:#0d6efd;" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-eye-slash-fill" viewBox="0 0 16 16">
+                <path d="m10.79 12.912-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7.029 7.029 0 0 0 2.79-.588M5.21 3.088A7.028 7.028 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474L5.21 3.089z"/>
+                <path d="M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829l-2.83-2.829zm4.95.708-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829zm3.171 6-12-12 .708-.708 12 12z"/>
+              </svg>
+           </div>
+          </div>
+          <div *ngIf="signUpForm.get('ConfirmPassword')?.hasError('required') && signUpForm.get('ConfirmPassword')?.touched" class="text-danger">* Confirm Password is Required</div>
+          <div *ngIf="!confirm" class="text-danger">* Confirm Password and Password is not Matching</div>
+        </div>
+        <div class="mb-3">
+            <label for="PhoneNo" class="form-label">Mobile Number</label>
+            <input type="text" class="form-control" id="PhoneNo" formControlName="PhoneNo">
+            <div *ngIf="signUpForm.get('PhoneNo')?.hasError('required') && signUpForm.get('PhoneNo')?.touched" class="text-danger">* Mobile Number is Required</div>
+          </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="Check">
+          <label class="form-check-label" for="exampleCheck1">Agree with Terms and Conditions</label>
+        </div>
+        <button class="btn btn-primary" (click)="signUp()" [disabled]="!signUpForm.valid && confirm">Sign Up</button>
+    </form>
+    <ng-template #verify>
+      <div id="verify">
+        <div id="liveAlertPlaceholder"></div>
+      <div *ngIf="alertMsg" class="alert alert-info alert-dismissible fade show" role="alert">
+        <p>{{message}}</p>
+        <p>You Will Be Redirect To Login Page within 5sec: {{timer}}</p>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+        <h1 style="color: #2881c3; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Enter OTP</h1>
+        <div id="security_logo">
+          <!-- <svg *ngIf="!security_logo" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-shield-lock-fill" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 0c-.69 0-1.843.265-2.928.56-1.11.3-2.229.655-2.887.87a1.54 1.54 0 0 0-1.044 1.262c-.596 4.477.787 7.795 2.465 9.99a11.777 11.777 0 0 0 2.517 2.453c.386.273.744.482 1.048.625.28.132.581.24.829.24s.548-.108.829-.24a7.159 7.159 0 0 0 1.048-.625 11.775 11.775 0 0 0 2.517-2.453c1.678-2.195 3.061-5.513 2.465-9.99a1.541 1.541 0 0 0-1.044-1.263 62.467 62.467 0 0 0-2.887-.87C9.843.266 8.69 0 8 0m0 5a1.5 1.5 0 0 1 .5 2.915l.385 1.99a.5.5 0 0 1-.491.595h-.788a.5.5 0 0 1-.49-.595l.384-1.99A1.5 1.5 0 0 1 8 5"/>
+          </svg> -->
+          <svg *ngIf="!security_logo" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-shield-lock" viewBox="0 0 16 16">
+            <path d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56"/>
+            <path d="M9.5 6.5a1.5 1.5 0 0 1-1 1.415l.385 1.99a.5.5 0 0 1-.491.595h-.788a.5.5 0 0 1-.49-.595l.384-1.99a1.5 1.5 0 1 1 2-1.415z"/>
+          </svg>
+          <svg *ngIf="security_logo" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-shield-fill-check" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 0c-.69 0-1.843.265-2.928.56-1.11.3-2.229.655-2.887.87a1.54 1.54 0 0 0-1.044 1.262c-.596 4.477.787 7.795 2.465 9.99a11.777 11.777 0 0 0 2.517 2.453c.386.273.744.482 1.048.625.28.132.581.24.829.24s.548-.108.829-.24a7.159 7.159 0 0 0 1.048-.625 11.775 11.775 0 0 0 2.517-2.453c1.678-2.195 3.061-5.513 2.465-9.99a1.541 1.541 0 0 0-1.044-1.263 62.467 62.467 0 0 0-2.887-.87C9.843.266 8.69 0 8 0m2.146 5.146a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647z"/>
+          </svg>
+        </div>
+        <p style="color: gray;">Enter Your OTP Here!</p>
+        <form id="span_otp" [formGroup]="otpForm">
+          <input type="text" formControlName = "otp_1" (keyup)="keytab($event)">
+          <input type="text" formControlName = "otp_2" (keyup)="keytab($event)">
+          <input type="text" formControlName = "otp_3" (keyup)="keytab($event)">
+          <input type="text" formControlName = "otp_4" (keyup)="keytab($event)">
+        </form>
+        <button id="verify_otp" (click)="verify_otp()" [disabled]="!otpForm.valid">Verify OTP</button>
+      </div>
+    </ng-template>
+    <img  src="https://wondercopier.in/Images/signup.png" alt="">
+</div>

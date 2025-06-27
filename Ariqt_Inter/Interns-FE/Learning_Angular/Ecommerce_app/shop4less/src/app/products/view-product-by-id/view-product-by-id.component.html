@@ -1,0 +1,20 @@
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let product of categoryList; let i=index" >
+        <div class="card h-100">
+            <img src="{{product.productImg}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title" id="title" routerLink="/products/view-product/{{product.id}}">{{product.productName}}</h5>
+                <h5 class="card-title">{{product.price | currency : "INR"}}</h5>
+                <p class="card-text">{{product.description}}</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-body-secondary">{{product.rating}} Stars</small>
+            </div>
+            <div id="btns">
+                <button class="btn btn-danger" (click)="deleteProduct(product.id)">Delete product</button>
+                <a href="/products/update-product/{{product.id}}" class="btn btn-danger" role="button" >Update Product</a>
+            </div>
+           
+        </div>
+    </div>
+</div>
